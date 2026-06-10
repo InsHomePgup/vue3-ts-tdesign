@@ -12,7 +12,8 @@
     "release": "release-it",
     "release:patch": "release-it patch",
     "release:minor": "release-it minor",
-    "release:major": "release-it major"
+    "release:major": "release-it major",
+    "gen:api": "orval"
   },
   "dependencies": {
     "@vueuse/core": "^14.3.0",
@@ -29,6 +30,7 @@
     "@vitejs/plugin-vue": "^6.0.7",
     "@vue/tsconfig": "^0.9.1",
     "eslint": "^10.4.1",
+    "orval": "^8.16.0",
     "release-it": "^20.2.0",
     "typescript": "~6.0.3",
     "unocss": "^66.7.0",
