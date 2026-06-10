@@ -6,6 +6,7 @@ import VueRouter from 'vue-router/vite'
 import { VueRouterAutoImports } from 'vue-router/unplugin'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import { TDesignResolver } from 'unplugin-vue-components/resolvers'
 import path from 'node:path'
 
 export default defineConfig({
@@ -30,9 +31,11 @@ export default defineConfig({
         '@vueuse/core',
         'pinia',
       ],
+      resolvers: [TDesignResolver({ library: 'vue-next' })],
       dts: 'src/auto-imports.d.ts',
     }),
     Components({
+      resolvers: [TDesignResolver({ library: 'vue-next' })],
       dts: 'src/components.d.ts',
     }),
   ],

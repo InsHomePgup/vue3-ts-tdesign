@@ -5,7 +5,8 @@
       <nav class="nav">
         <RouterLink to="/">首页</RouterLink> |
         <RouterLink to="/about">关于</RouterLink> |
-        <RouterLink to="/user/1">用户</RouterLink>
+        <RouterLink to="/user/1">用户</RouterLink> |
+        <RouterLink to="/demo">TDesign 演示</RouterLink>
       </nav>
     </header>
 
