@@ -1,5 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import UnoCSS from 'unocss/vite'
+import VueDevTools from 'vite-plugin-vue-devtools'
+import VueRouter from 'vue-router/vite'
+import { VueRouterAutoImports } from 'vue-router/unplugin'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 import path from 'node:path'
 
 export default defineConfig({
@@ -9,5 +15,28 @@ export default defineConfig({
     },
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
   },
-  plugins: [vue()],
+  plugins: [
+    VueRouter({
+      routesFolder: 'src/pages',
+      dts: 'src/typed-router.d.ts',
+    }),
+    vue(),
+    UnoCSS(),
+    VueDevTools(),
+    AutoImport({
+      imports: [
+        'vue',
+        VueRouterAutoImports,
+        '@vueuse/core',
+        'pinia',
+      ],
+      dts: 'src/auto-imports.d.ts',
+    }),
+    Components({
+      dts: 'src/components.d.ts',
+    }),
+  ],
+  server: {
+    host: true,
+  },
 })

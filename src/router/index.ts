@@ -1,36 +1,33 @@
-import { createRouter, createWebHashHistory} from 'vue-router'
-
-import HomeView from '@/pages/home.vue'
-import AboutView from '@/pages/about.vue'
-import UserView from '@/pages/user.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
+import { routes, handleHotUpdate } from 'vue-router/auto-routes'
 import BaseLayout from '@/Layout/BaseLayout.vue'
-import CardView from '@/pages/About/Card.vue'
 
-const routes = [
-    { 
-        path: '/', 
-        component: BaseLayout,
-        children: [
-            { path: '', component: HomeView },
-            { 
-                path: 'about', 
-                component: AboutView,
-                // 添加嵌套路由
-                children: [
-                    {
-                        path: 'card',
-                        component: CardView
-                    }
-                ]
-            },
-            { path: 'user/:id', component: UserView },
-        ]
+function wrapRoutes(autoRoutes: RouteRecordRaw[]) {
+  return [
+    {
+      path: '/',
+      component: BaseLayout,
+      children: autoRoutes.map(r => ({
+        ...r,
+        path: r.path === '/' ? '' : r.path.slice(1),
+      })),
     },
-]
+  ]
+}
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes,
+  history: createWebHashHistory(),
+  routes: wrapRoutes(routes),
 })
 
-export default router;
+if (import.meta.hot) {
+  handleHotUpdate(router, (newRoutes) => {
+    router.clearRoutes()
+    for (const route of wrapRoutes(newRoutes)) {
+      router.addRoute(route)
+    }
+  })
+}
+
+export default router
