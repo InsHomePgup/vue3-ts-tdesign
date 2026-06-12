@@ -21,7 +21,7 @@
       <h3>Input 输入框</h3>
       <t-space direction="vertical" style="width: 300px">
         <t-input v-model="inputVal" placeholder="请输入内容" clearable />
-        <t-input v-model="inputVal" placeholder="带前缀图标" prefix-icon="search" />
+        <t-input v-model="inputVal" placeholder="禁用状态" disabled />
         <t-textarea v-model="textareaVal" placeholder="多行文本" :rows="3" />
       </t-space>
     </section>

@@ -30,6 +30,7 @@ export default defineConfig({
         VueRouterAutoImports,
         '@vueuse/core',
         'pinia',
+        { dayjs: [['default', 'dayjs']] },
       ],
       resolvers: [TDesignResolver({ library: 'vue-next' })],
       dts: 'src/auto-imports.d.ts',

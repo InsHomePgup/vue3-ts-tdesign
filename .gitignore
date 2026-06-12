@@ -27,3 +27,9 @@ dist-ssr
 .claude/
 .agents/
 skills-lock.json
+
+# vue-tsc compiled config outputs
+vite.config.js
+vite.config.d.ts
+orval.config.js
+orval.config.d.ts

@@ -5,7 +5,8 @@ const instance = $fetch.create({
   onRequest({ options }) {
     const token = localStorage.getItem('token')
     if (token) {
-      options.headers = { ...options.headers, Authorization: `Bearer ${token}` }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ;(options as any).headers = { ...(options.headers ?? {}), Authorization: `Bearer ${token}` }
     }
   },
   onResponseError({ response }) {
