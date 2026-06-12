@@ -4,10 +4,10 @@
  * Example API
  * OpenAPI spec version: 1.0.0
  */
-import type { CreateUserRequestRole } from './createUserRequestRole';
+import type { CreateUserRequestRole } from './createUserRequestRole'
 
 export interface CreateUserRequest {
-  name: string;
-  email: string;
-  role?: CreateUserRequestRole;
+  name: string
+  email: string
+  role?: CreateUserRequestRole
 }

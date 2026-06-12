@@ -4,9 +4,9 @@
  * Example API
  * OpenAPI spec version: 1.0.0
  */
-import type { UpdateUserRequestRole } from './updateUserRequestRole';
+import type { UpdateUserRequestRole } from './updateUserRequestRole'
 
 export interface UpdateUserRequest {
-  name?: string;
-  role?: UpdateUserRequestRole;
+  name?: string
+  role?: UpdateUserRequestRole
 }

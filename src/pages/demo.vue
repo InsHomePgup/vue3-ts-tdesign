@@ -1,77 +1,3 @@
-<template>
-  <div class="demo-page">
-    <h2>TDesign 组件演示</h2>
-
-    <!-- Button -->
-    <section>
-      <h3>Button 按钮</h3>
-      <t-space>
-        <t-button>默认按钮</t-button>
-        <t-button theme="primary">主要按钮</t-button>
-        <t-button theme="danger">危险按钮</t-button>
-        <t-button variant="outline">描边按钮</t-button>
-        <t-button :loading="loading" theme="primary" @click="toggleLoading">
-          {{ loading ? '加载中' : '点击加载' }}
-        </t-button>
-      </t-space>
-    </section>
-
-    <!-- Input -->
-    <section>
-      <h3>Input 输入框</h3>
-      <t-space direction="vertical" style="width: 300px">
-        <t-input v-model="inputVal" placeholder="请输入内容" clearable />
-        <t-input v-model="inputVal" placeholder="禁用状态" disabled />
-        <t-textarea v-model="textareaVal" placeholder="多行文本" :rows="3" />
-      </t-space>
-    </section>
-
-    <!-- Select -->
-    <section>
-      <h3>Select 选择器</h3>
-      <t-select v-model="selectVal" placeholder="请选择" style="width: 200px" clearable>
-        <t-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label" />
-      </t-select>
-    </section>
-
-    <!-- Table -->
-    <section>
-      <h3>Table 表格</h3>
-      <t-table :data="tableData" :columns="columns" row-key="id" stripe hover />
-    </section>
-
-    <!-- Dialog -->
-    <section>
-      <h3>Dialog 对话框</h3>
-      <t-space>
-        <t-button theme="primary" @click="dialogVisible = true">打开对话框</t-button>
-        <t-button @click="showMessage">MessagePlugin 消息</t-button>
-      </t-space>
-      <t-dialog
-        v-model:visible="dialogVisible"
-        header="对话框标题"
-        @confirm="dialogVisible = false"
-      >
-        这里是对话框的内容
-      </t-dialog>
-    </section>
-
-    <!-- Tag & Badge -->
-    <section>
-      <h3>Tag / Badge</h3>
-      <t-space>
-        <t-tag theme="primary">主要标签</t-tag>
-        <t-tag theme="success">成功标签</t-tag>
-        <t-tag theme="warning">警告标签</t-tag>
-        <t-tag theme="danger">危险标签</t-tag>
-        <t-badge :count="5">
-          <t-button>消息</t-button>
-        </t-badge>
-      </t-space>
-    </section>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { MessagePlugin } from 'tdesign-vue-next'
 
@@ -109,6 +35,98 @@ function showMessage() {
   MessagePlugin.success('操作成功！')
 }
 </script>
+
+<template>
+  <div class="demo-page">
+    <h2>TDesign 组件演示</h2>
+
+    <!-- Button -->
+    <section>
+      <h3>Button 按钮</h3>
+      <t-space>
+        <t-button>默认按钮</t-button>
+        <t-button theme="primary">
+          主要按钮
+        </t-button>
+        <t-button theme="danger">
+          危险按钮
+        </t-button>
+        <t-button variant="outline">
+          描边按钮
+        </t-button>
+        <t-button :loading="loading" theme="primary" @click="toggleLoading">
+          {{ loading ? '加载中' : '点击加载' }}
+        </t-button>
+      </t-space>
+    </section>
+
+    <!-- Input -->
+    <section>
+      <h3>Input 输入框</h3>
+      <t-space direction="vertical" style="width: 300px">
+        <t-input v-model="inputVal" placeholder="请输入内容" clearable />
+        <t-input v-model="inputVal" placeholder="禁用状态" disabled />
+        <t-textarea v-model="textareaVal" placeholder="多行文本" :rows="3" />
+      </t-space>
+    </section>
+
+    <!-- Select -->
+    <section>
+      <h3>Select 选择器</h3>
+      <t-select v-model="selectVal" placeholder="请选择" style="width: 200px" clearable>
+        <t-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label" />
+      </t-select>
+    </section>
+
+    <!-- Table -->
+    <section>
+      <h3>Table 表格</h3>
+      <t-table :data="tableData" :columns="columns" row-key="id" stripe hover />
+    </section>
+
+    <!-- Dialog -->
+    <section>
+      <h3>Dialog 对话框</h3>
+      <t-space>
+        <t-button theme="primary" @click="dialogVisible = true">
+          打开对话框
+        </t-button>
+        <t-button @click="showMessage">
+          MessagePlugin 消息
+        </t-button>
+      </t-space>
+      <t-dialog
+        v-model:visible="dialogVisible"
+        header="对话框标题"
+        @confirm="dialogVisible = false"
+      >
+        这里是对话框的内容
+      </t-dialog>
+    </section>
+
+    <!-- Tag & Badge -->
+    <section>
+      <h3>Tag / Badge</h3>
+      <t-space>
+        <t-tag theme="primary">
+          主要标签
+        </t-tag>
+        <t-tag theme="success">
+          成功标签
+        </t-tag>
+        <t-tag theme="warning">
+          警告标签
+        </t-tag>
+        <t-tag theme="danger">
+          危险标签
+        </t-tag>
+        <t-badge :count="5">
+          <t-button>消息</t-button>
+        </t-badge>
+      </t-space>
+    </section>
+  </div>
+</template>
 
 <style scoped>
 .demo-page {

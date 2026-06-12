@@ -5,11 +5,10 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type CreateUserRequestRole = typeof CreateUserRequestRole[keyof typeof CreateUserRequestRole];
-
+export type CreateUserRequestRole = typeof CreateUserRequestRole[keyof typeof CreateUserRequestRole]
 
 export const CreateUserRequestRole = {
   admin: 'admin',
   editor: 'editor',
   viewer: 'viewer',
-} as const;
+} as const

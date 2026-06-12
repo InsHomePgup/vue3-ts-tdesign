@@ -4,9 +4,9 @@
  * Example API
  * OpenAPI spec version: 1.0.0
  */
-import type { User } from './user';
+import type { User } from './user'
 
 export interface UserListResponse {
-  data: User[];
-  total: number;
+  data: User[]
+  total: number
 }

@@ -4,12 +4,12 @@
  * Example API
  * OpenAPI spec version: 1.0.0
  */
-import type { UserRole } from './userRole';
+import type { UserRole } from './userRole'
 
 export interface User {
-  id: number;
-  name: string;
-  email: string;
-  role?: UserRole;
-  createdAt: string;
+  id: number
+  name: string
+  email: string
+  role?: UserRole
+  createdAt: string
 }

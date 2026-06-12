@@ -1,12 +1,24 @@
+<script setup lang="ts">
+// 无需额外逻辑
+</script>
+
 <template>
   <div class="base-layout">
     <header class="header">
       <h1>基础布局</h1>
       <nav class="nav">
-        <RouterLink to="/">首页</RouterLink> |
-        <RouterLink to="/about">关于</RouterLink> |
-        <RouterLink to="/user/1">用户</RouterLink> |
-        <RouterLink to="/demo">TDesign 演示</RouterLink>
+        <RouterLink to="/">
+          首页
+        </RouterLink> |
+        <RouterLink to="/about">
+          关于
+        </RouterLink> |
+        <RouterLink to="/user/1">
+          用户
+        </RouterLink> |
+        <RouterLink to="/demo">
+          TDesign 演示
+        </RouterLink>
       </nav>
     </header>
 
@@ -20,10 +32,6 @@
     </footer>
   </div>
 </template>
-
-<script setup lang="ts">
-// 无需额外逻辑
-</script>
 
 <style scoped>
 .base-layout {

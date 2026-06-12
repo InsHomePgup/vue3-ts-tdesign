@@ -9,33 +9,32 @@ import type {
   ListUsersParams,
   UpdateUserRequest,
   UserListResponse,
-  UserResponse
-} from './models';
+  UserResponse,
+} from './models'
 
-import { request } from '../../utils/request';
-export type listUsersResponse200 = {
+import { request } from '../../utils/request'
+
+export interface listUsersResponse200 {
   data: UserListResponse
   status: 200
 }
 
 export type listUsersResponseSuccess = (listUsersResponse200) & {
-  headers: Headers;
-};
-;
+  headers: Headers
+}
 
 export type listUsersResponse = (listUsersResponseSuccess)
 
-export const getListUsersUrl = (params?: ListUsersParams,) => {
-  const normalizedParams = new URLSearchParams();
+export function getListUsersUrl(params?: ListUsersParams) {
+  const normalizedParams = new URLSearchParams()
 
   Object.entries(params || {}).forEach(([key, value]) => {
-
     if (value !== undefined) {
       normalizedParams.append(key, value === null ? 'null' : String(value))
     }
-  });
+  })
 
-  const stringifiedParams = normalizedParams.toString();
+  const stringifiedParams = normalizedParams.toString()
 
   return stringifiedParams.length > 0 ? `/users?${stringifiedParams}` : `/users`
 }
@@ -43,158 +42,116 @@ export const getListUsersUrl = (params?: ListUsersParams,) => {
 /**
  * @summary 获取用户列表
  */
-export const listUsers = async (params?: ListUsersParams, options?: RequestInit): Promise<listUsersResponse> => {
-
-  return request<listUsersResponse>(getListUsersUrl(params),
-  {
+export async function listUsers(params?: ListUsersParams, options?: RequestInit): Promise<listUsersResponse> {
+  return request<listUsersResponse>(getListUsersUrl(params), {
     ...options,
-    method: 'GET'
+    method: 'GET',
 
+  })
+}
 
-  }
-);}
-
-
-
-export type createUserResponse200 = {
+export interface createUserResponse200 {
   data: UserResponse
   status: 200
 }
 
 export type createUserResponseSuccess = (createUserResponse200) & {
-  headers: Headers;
-};
-;
+  headers: Headers
+}
 
 export type createUserResponse = (createUserResponseSuccess)
 
-export const getCreateUserUrl = () => {
-
-
-
-
+export function getCreateUserUrl() {
   return `/users`
 }
 
 /**
  * @summary 创建用户
  */
-export const createUser = async (createUserRequest: CreateUserRequest, options?: RequestInit): Promise<createUserResponse> => {
-
-  return request<createUserResponse>(getCreateUserUrl(),
-  {
+export async function createUser(createUserRequest: CreateUserRequest, options?: RequestInit): Promise<createUserResponse> {
+  return request<createUserResponse>(getCreateUserUrl(), {
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(createUserRequest)
-  }
-);}
+    body: JSON.stringify(createUserRequest),
+  })
+}
 
-
-
-export type getUserByIdResponse200 = {
+export interface getUserByIdResponse200 {
   data: UserResponse
   status: 200
 }
 
 export type getUserByIdResponseSuccess = (getUserByIdResponse200) & {
-  headers: Headers;
-};
-;
+  headers: Headers
+}
 
 export type getUserByIdResponse = (getUserByIdResponseSuccess)
 
-export const getGetUserByIdUrl = (id: number,) => {
-
-
-
-
+export function getGetUserByIdUrl(id: number) {
   return `/users/${id}`
 }
 
 /**
  * @summary 获取用户详情
  */
-export const getUserById = async (id: number, options?: RequestInit): Promise<getUserByIdResponse> => {
-
-  return request<getUserByIdResponse>(getGetUserByIdUrl(id),
-  {
+export async function getUserById(id: number, options?: RequestInit): Promise<getUserByIdResponse> {
+  return request<getUserByIdResponse>(getGetUserByIdUrl(id), {
     ...options,
-    method: 'GET'
+    method: 'GET',
 
+  })
+}
 
-  }
-);}
-
-
-
-export type updateUserResponse200 = {
+export interface updateUserResponse200 {
   data: UserResponse
   status: 200
 }
 
 export type updateUserResponseSuccess = (updateUserResponse200) & {
-  headers: Headers;
-};
-;
+  headers: Headers
+}
 
 export type updateUserResponse = (updateUserResponseSuccess)
 
-export const getUpdateUserUrl = (id: number,) => {
-
-
-
-
+export function getUpdateUserUrl(id: number) {
   return `/users/${id}`
 }
 
 /**
  * @summary 更新用户
  */
-export const updateUser = async (id: number,
-    updateUserRequest: UpdateUserRequest, options?: RequestInit): Promise<updateUserResponse> => {
-
-  return request<updateUserResponse>(getUpdateUserUrl(id),
-  {
+export async function updateUser(id: number, updateUserRequest: UpdateUserRequest, options?: RequestInit): Promise<updateUserResponse> {
+  return request<updateUserResponse>(getUpdateUserUrl(id), {
     ...options,
     method: 'PUT',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(updateUserRequest)
-  }
-);}
+    body: JSON.stringify(updateUserRequest),
+  })
+}
 
-
-
-export type deleteUserResponse200 = {
+export interface deleteUserResponse200 {
   data: void
   status: 200
 }
 
 export type deleteUserResponseSuccess = (deleteUserResponse200) & {
-  headers: Headers;
-};
-;
+  headers: Headers
+}
 
 export type deleteUserResponse = (deleteUserResponseSuccess)
 
-export const getDeleteUserUrl = (id: number,) => {
-
-
-
-
+export function getDeleteUserUrl(id: number) {
   return `/users/${id}`
 }
 
 /**
  * @summary 删除用户
  */
-export const deleteUser = async (id: number, options?: RequestInit): Promise<deleteUserResponse> => {
-
-  return request<deleteUserResponse>(getDeleteUserUrl(id),
-  {
+export async function deleteUser(id: number, options?: RequestInit): Promise<deleteUserResponse> {
+  return request<deleteUserResponse>(getDeleteUserUrl(id), {
     ...options,
-    method: 'DELETE'
+    method: 'DELETE',
 
-
-  }
-);}
+  })
+}

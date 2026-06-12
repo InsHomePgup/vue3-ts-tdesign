@@ -1,6 +1,6 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
-import { routes, handleHotUpdate } from 'vue-router/auto-routes'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import { handleHotUpdate, routes } from 'vue-router/auto-routes'
 import BaseLayout from '@/Layout/BaseLayout.vue'
 
 function wrapRoutes(autoRoutes: RouteRecordRaw[]) {

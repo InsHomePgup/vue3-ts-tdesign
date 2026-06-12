@@ -4,19 +4,19 @@ Vue 3 + TypeScript + TDesign 项目模板，开箱即用。
 
 ## 技术栈
 
-| 分类 | 技术 |
-|------|------|
-| 框架 | Vue 3 + TypeScript |
-| 构建 | Vite 8 |
-| UI 组件 | TDesign Vue Next（按需自动导入） |
-| CSS | UnoCSS |
-| 路由 | Vue Router 5（文件路由，基于 `src/pages/`） |
-| 状态管理 | Pinia |
-| 工具函数 | VueUse |
-| HTTP | ofetch |
-| API 代码生成 | Orval（OpenAPI → TypeScript） |
-| 代码规范 | ESLint（@antfu/eslint-config） |
-| 版本发布 | release-it + conventional-changelog |
+| 分类         | 技术                                        |
+| ------------ | ------------------------------------------- |
+| 框架         | Vue 3 + TypeScript                          |
+| 构建         | Vite 8                                      |
+| UI 组件      | TDesign Vue Next（按需自动导入）            |
+| CSS          | UnoCSS                                      |
+| 路由         | Vue Router 5（文件路由，基于 `src/pages/`） |
+| 状态管理     | Pinia                                       |
+| 工具函数     | VueUse                                      |
+| HTTP         | ofetch                                      |
+| API 代码生成 | Orval（OpenAPI → TypeScript）               |
+| 代码规范     | ESLint（@antfu/eslint-config）              |
+| 版本发布     | release-it + conventional-changelog         |
 
 ## 自动导入
 
